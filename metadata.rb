@@ -4,5 +4,6 @@ maintainer_email 'kjunine@gmail.com'
 license          'MIT'
 description      'Installs/Configures docker-mongodb'
 long_description 'Installs/Configures docker-mongodb'
-version          '0.1.0'
+version          '0.2.0'
 
+depends 'docker'
