@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: docker-mongodb
-# Recipe:: default
+# Recipe:: run-mongo
 #
 # Copyright (C) 2014 Daniel Ku
 #
@@ -24,8 +24,14 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-docker_image 'kjunine/mongodb' do
-  tag 'latest'
-  cmd_timeout 600
-  action :pull
+docker_container 'mongo' do
+  image 'kjunine/mongodb:latest'
+  container_name 'mongo'
+  entrypoint 'mongo'
+  command node['mongodb']['server']['address']
+  tty true
+  stdin true
+  remove_automatically true
+  cmd_timeout 300
+  action :run
 end

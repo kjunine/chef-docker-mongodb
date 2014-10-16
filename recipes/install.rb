@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: docker-mongodb
-# Recipe:: default
+# Recipe:: install
 #
 # Copyright (C) 2014 Daniel Ku
 #
@@ -24,13 +24,14 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-docker_container 'mongodb' do
+docker_container 'mongod' do
   image 'kjunine/mongodb:latest'
-  container_name 'mongodb'
+  container_name 'mongod'
   entrypoint 'mongod'
   command '--dbpath /data'
   detach true
   port '27017:27017'
   volume '/data'
+  cmd_timeout 300
   action :run
 end
