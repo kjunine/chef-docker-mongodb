@@ -7,10 +7,12 @@ provisioner:
 
 platforms:
   - name: ubuntu-12.04
-  - name: centos-6.4
+  - name: centos-7.0
 
 suites:
   - name: default
     run_list:
+      - recipe[docker]
       - recipe[docker-mongodb::default]
+      - recipe[docker-mongodb::install]
     attributes:

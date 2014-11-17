@@ -25,13 +25,13 @@
 #
 
 docker_container 'mongod' do
-  image 'kjunine/mongodb:latest'
-  container_name 'mongod'
+  image "#{node["mongodb"]["docker_image"]}:#{node["mongodb"]["docker_image_tag"]}"
+  container_name node["mongodb"]["docker_container"]
   entrypoint 'mongod'
   command "--dbpath /data --replSet #{node['mongodb']['replset']}"
   detach true
   port '27017:27017'
-  volume '/data'
+  volume "#{node["mongodb"]["data_path"]}:/data"
   cmd_timeout 300
   action :run
 end

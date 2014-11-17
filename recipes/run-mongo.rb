@@ -25,8 +25,8 @@
 #
 
 docker_container 'mongo' do
-  image 'kjunine/mongodb:latest'
-  container_name 'mongo'
+  image "#{node["mongodb"]["docker_image"]}:#{node["mongodb"]["docker_image_tag"]}"
+  container_name node["mongodb"]["docker_container"]
   entrypoint 'mongo'
   command node['mongodb']['server']['address']
   tty true

@@ -24,8 +24,8 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-docker_image 'kjunine/mongodb' do
-  tag 'latest'
+docker_image node["mongodb"]["docker_image"] do
+  tag node["mongodb"]["docker_image_tag"]
   cmd_timeout 600
   action :pull
 end
