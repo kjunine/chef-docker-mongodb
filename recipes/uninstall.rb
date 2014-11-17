@@ -24,10 +24,10 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-docker_container 'mongod' do
+docker_container node["mongodb"]["docker_container"] do
   action :stop
 end
 
-docker_container 'mongod' do
+docker_container node["mongodb"]["docker_container"] do
   action :remove
 end
