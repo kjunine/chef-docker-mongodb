@@ -1,4 +1,4 @@
-default["mongodb"]["docker_image"] = "kjunine/mongodb"
+default["mongodb"]["docker_image"] = "mongo"
 default["mongodb"]["docker_image_tag"] = "latest"
 default["mongodb"]["docker_container"] = "mongod"
 default["mongodb"]["data_path"] = "/data"
